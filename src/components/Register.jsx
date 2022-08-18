@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Register() {
+
     const navigate = useNavigate()
     const [data, setData] = useState([]);
     const [user, setUser] = useState({
@@ -40,16 +41,23 @@ export default function Register() {
         postData(user)
         setData(user);
     };
-    // console.log(data);
+
     const postData = (user) => {
         axios.post('https://masai-api-mocker.herokuapp.com/auth/register', user)
-            .then(r =>
-                // console.log(r);
-                
-                navigate('/login', { replace: true })
+            .then(r => {
+                // console.log(r.data.error);
+                let ans = r.data.error;
+                if (ans == false) {
+                    alert(r.data.message);
+                    navigate('/login', { replace: true })
+                } else {
+                    alert(r.data.message);
+                }
+            }
             )
-            .catch((e) =>
-                console.log(e)
+            .catch((e) => {
+                alert(e.data.message)
+            }
             )
     }
 

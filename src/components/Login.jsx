@@ -40,7 +40,7 @@ export default function Login() {
     const postData = (user) => {
         axios.post('https://masai-api-mocker.herokuapp.com/auth/login', user)
             .then(r => {
-                console.log(r);
+                // console.log(r.data.error);
                 alert("Login Successfull");
                 navigate('/home', { replace: true })
             }
@@ -48,11 +48,9 @@ export default function Login() {
             .catch((e) => {
                 console.log(e);
                 alert("Invalid Credential");
-               }
+            }
             )
     }
-
-
     return (
         <Flex
             minH={'100vh'}
