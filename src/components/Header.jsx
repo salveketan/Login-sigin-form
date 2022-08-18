@@ -53,10 +53,12 @@ export default function Header() {
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
                     <Text
+                        as={'a'}
+                        href={'/'}
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}
                         color={useColorModeValue('gray.800', 'white')}>
-                        <Heading as='h5' size='xl' fontFamily={"cursive"} marginLeft={"10px"} color={"red"}> 
+                        <Heading as='h5' size='xl' fontFamily={"cursive"} marginLeft={"10px"} color={"red"}>
                             Ketan
                         </Heading>
                     </Text>
@@ -82,7 +84,7 @@ export default function Header() {
                         _hover={{
                             bg: 'pink.300',
                         }}
-                        >
+                    >
                         Log In
                     </Button>
                     <Button
@@ -96,7 +98,7 @@ export default function Header() {
                         _hover={{
                             bg: 'pink.300',
                         }}
-                        >
+                    >
                         Registration
                     </Button>
                     {/* <Button
