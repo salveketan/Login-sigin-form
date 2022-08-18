@@ -16,8 +16,11 @@ import {
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { authAction } from '../Redux/authReducer/action';
 
 export default function Login() {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [data, setData] = useState([]);
     const [user, setUser] = useState({
@@ -40,14 +43,15 @@ export default function Login() {
     const postData = (user) => {
         axios.post('https://masai-api-mocker.herokuapp.com/auth/login', user)
             .then(r => {
-                // console.log(r.data.error);
+                console.log(r);
+                dispatch(authAction(r))
                 alert("Login Successfull");
                 navigate('/home', { replace: true })
             }
             )
             .catch((e) => {
                 console.log(e);
-                alert("Invalid Credential");
+                alert("Invalid login creadentials");
             }
             )
     }
