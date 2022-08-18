@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useSelector } from 'react-redux';
 
 import {
   Heading,
@@ -15,6 +16,16 @@ import {
 } from '@chakra-ui/react';
 
 export default function Home() {
+  const user = useSelector(state => state.data)
+  var userData = user.config.data;
+  console.log("vishal", user);
+  // var { "password": password, "username": name } = user.config.data;
+  // console.log(name);
+
+  // var dataa = { "password": "1234", "username": "keta" }
+  // var { "password": password, "username": name } = dataa
+  // console.log(password);
+
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -25,9 +36,9 @@ export default function Home() {
 
     axios({
       method: 'get',
-      url: ' https://masai-api-mocker.herokuapp.com/user/shakal',
+      url: `https://masai-api-mocker.herokuapp.com/user/ketansalve`,
       headers: {
-        "Authorization": "Bearer c230e2caa0936df5de7d73f98aa0438e"
+        "Authorization": `Bearer 7c70a92f9819b56d62d64e6c9e0aff67`
       }
     })
       .then((r) =>
@@ -35,7 +46,7 @@ export default function Home() {
       )
       .catch((e) => console.log(e))
   }
-  console.log("ketandata", data);
+  // console.log("ketandata", data);
 
   return (
     <Center py={6}>
@@ -77,7 +88,7 @@ export default function Home() {
           textAlign={'center'}
           color={useColorModeValue('gray.700', 'gray.400')}
           px={5}>
-          <h3>{data.description}</h3>{" "}
+          {data.description}{" "}
           <Link href={'#'} color={'blue.400'}>
             #tag
           </Link>{' '}

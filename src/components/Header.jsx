@@ -6,6 +6,7 @@ import {
     Button,
     Stack,
     Collapse,
+    Heading,
     Icon,
     Link,
     Popover,
@@ -55,7 +56,9 @@ export default function Header() {
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}
                         color={useColorModeValue('gray.800', 'white')}>
-                        Ketan
+                        <Heading as='h5' size='xl' fontFamily={"cursive"} marginLeft={"10px"} color={"red"}> 
+                            Ketan
+                        </Heading>
                     </Text>
 
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>

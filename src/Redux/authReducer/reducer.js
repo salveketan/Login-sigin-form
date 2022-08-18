@@ -11,9 +11,9 @@ const initState =
 }
 
 export const authReducer = (state = initState, action) => {
-    
+
     const { type, payload } = action;
-    console.log(payload);
+    // console.log("ketanpayload", payload);
     switch (type) {
         case "auth": {
             return {

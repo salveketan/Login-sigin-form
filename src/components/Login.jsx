@@ -43,7 +43,7 @@ export default function Login() {
     const postData = (user) => {
         axios.post('https://masai-api-mocker.herokuapp.com/auth/login', user)
             .then(r => {
-                console.log(r);
+                // console.log(r);
                 dispatch(authAction(r))
                 alert("Login Successfull");
                 navigate('/home', { replace: true })
